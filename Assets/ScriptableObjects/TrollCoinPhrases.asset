@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 264e9432fc7ab394bb56959ca8a53d62, type: 3}
+  m_Name: TrollCoinPhrases
+  m_EditorClassIdentifier: Assembly-CSharp::TrollPhraseSet
+  phrases:
+  - "\u201CToo slow, hero.\u201D "
+  - "\u201CYou fell for it.\u201D"
+  - "\u201CNot today.\u201D"
+  - "\u201CI\u2019m not yours.\u201D"
+  - "\u201CTry again\u2026 never.\u201D"
+  - "\u201CNice reflexes. For a turtle.\u201D "
+  - "\u201CYou call that effort?\u201D "
+  - "\u201CAlmost impressive.\u201D"
+  - "\u201CDenied.\u201D"
+  - "\u201CYou\u2019ve been coin-blocked.\u201D"
