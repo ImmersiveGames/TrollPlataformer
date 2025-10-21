@@ -3,12 +3,28 @@ using UnityEngine;
 
 public class SkinManager : MonoBehaviour
 {
+    public static SkinManager Instance;
+    
     [SerializeField] private Transform skinContainer;
     [SerializeField] private List<SkinData> allSkins; // SkinData é ScriptableObject com prefab, nome, preço, etc
 
     private GameObject currentSkinInstance;
     private HashSet<string> unlockedSkins = new HashSet<string>();
     private string currentSkinId;
+    private string defaultSkinId;
+    
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -18,6 +34,10 @@ public class SkinManager : MonoBehaviour
         if (!string.IsNullOrEmpty(currentSkinId))
         {
             ApplySkin(currentSkinId);
+        }
+        else
+        {
+            ApplySkin(defaultSkinId);
         }
     }
 
@@ -91,9 +111,15 @@ public class SkinManager : MonoBehaviour
         
         // Garante que a skin padrão esteja desbloqueada
         SkinData defaultSkin = allSkins.Find(skin => skin.isDefault);
-        if (defaultSkin != null && !unlockedSkins.Contains(defaultSkin.skinId))
+        if (defaultSkin != null)
         {
-            unlockedSkins.Add(defaultSkin.skinId);
+            defaultSkinId = defaultSkin.skinId;
+            
+            if (!unlockedSkins.Contains(defaultSkin.skinId)) 
+                unlockedSkins.Add(defaultSkin.skinId);
         }
     }
+
+    public List<SkinData> GetAllSkinsList() { return allSkins; }
+    public string GetCurrentSkinId() { return currentSkinId; }
 }
