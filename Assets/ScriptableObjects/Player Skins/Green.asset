@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4d4d92f34d769142ba7d3d92fbc91db, type: 3}
-  m_Name: Yellow
+  m_Name: Green
   m_EditorClassIdentifier: Assembly-CSharp::SkinData
-  skinId: Yellow
-  displayName: Yellow
-  skinPrefab: {fileID: 5809675218720718215, guid: 6f8e4a5f67474ad41973a0721fe7601b, type: 3}
+  skinId: Green
+  displayName: Green
+  skinPrefab: {fileID: 5809675218720718215, guid: 771378e5ff836434ebc3336e6a124345, type: 3}
   price: 10
   isDefault: 0
-  skinIcon: {r: 1, g: 1, b: 0, a: 1}
+  skinIcon: {r: 0.047773175, g: 0.5849056, b: 0, a: 1}

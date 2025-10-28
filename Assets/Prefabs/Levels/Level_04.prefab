@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdbfac836ceca7743a186fb2bf62c29d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Level
-  levelLine: Look easy han?
+  levelLine: ' - Look easy han?'
   baseScore: 3
   playerStartPosition: {fileID: 9139267440050673740}
   playerStartFlipped: 0

@@ -99,7 +99,7 @@ public class LevelBuilder : MonoBehaviour
     {
         string number = (CurrentLevelIndex + 1).ToString();
         string line = currentLevel?.LevelLine ?? "";
-        return $"Level {number} – {line}";
+        return $"Level {number} {line}";
     }
 
     public int GetBaseScore()

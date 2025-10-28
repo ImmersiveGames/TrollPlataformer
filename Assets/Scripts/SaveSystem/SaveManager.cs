@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour
@@ -61,5 +62,12 @@ public class SaveManager : MonoBehaviour
     public int GetWalletBalanceSaved()
     {
        return Data.walletBalance;
+    }
+
+    public void SaveSkinsData(string currentSkinId, List<string> unlockedSkins)
+    {
+        Data.currentSkinID = currentSkinId;
+        Data.unlockedSkinsIds = new List<string>(unlockedSkins);
+        SaveData();
     }
 }

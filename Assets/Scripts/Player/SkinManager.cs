@@ -58,7 +58,7 @@ public class SkinManager : MonoBehaviour
                 // Instancia o prefab da nova skin no contêiner
                 currentSkinInstance = Instantiate(skinToApply.skinPrefab, skinContainer);
                 currentSkinId = skinId;
-                SaveProgress(); // Salva o progresso para persistir a skin atual
+                SaveSkins(); // Salva o progresso para persistir a skin atual
             }
             else
             {
@@ -77,7 +77,7 @@ public class SkinManager : MonoBehaviour
         if (!unlockedSkins.Contains(skinId))
         {
             unlockedSkins.Add(skinId);
-            SaveProgress(); // Método que salva o progresso (ex: PlayerPrefs, arquivo, etc)
+            SaveSkins(); // Método que salva o progresso (ex: PlayerPrefs, arquivo, etc)
         }
     }
 
@@ -86,11 +86,10 @@ public class SkinManager : MonoBehaviour
         return unlockedSkins.Contains(skinId); // Retorna se skin está desbloqueada
     }
 
-    public void SaveProgress()
+    public void SaveSkins()
     {
         // Salva currentSkinId e unlockedSkins
-        SaveManager.Instance.Data.currentSkinID = currentSkinId;
-        SaveManager.Instance.Data.unlockedSkinsIds = new List<string>(unlockedSkins);
+        SaveManager.Instance.SaveSkinsData(currentSkinId, new List<string>(unlockedSkins));
     }
 
     public void LoadProgress()

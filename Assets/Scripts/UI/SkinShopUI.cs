@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class SkinShopUI : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class SkinShopUI : MonoBehaviour
 
     private SkinManager skinManager;
     private WalletManager walletManager;
+    private Button firstButton;
 
     private void Start()
     {
@@ -24,19 +26,21 @@ public class SkinShopUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
+        firstButton = null;
+
         foreach (SkinData skin in skinManager.GetAllSkinsList())
         {
             GameObject itemGO = Instantiate(skinItemPrefab, contentParent);
 
             // Configura a imagem (por enquanto só muda a cor para diferenciar)
-            Image img = itemGO.GetComponentInChildren<Image>();
+            Image img = itemGO.GetComponentInChildren<SkinItemShopUI>().skinImage;
             if (img != null)
             {
-                img.color = skin.isDefault ? Color.gray : Color.white; // Exemplo: skin padrão cinza, outras brancas
+                img.color = skin.skinIcon; // Exemplo: skin padrão cinza, outras brancas
             }
 
             // Configura o botão
-            Button btn = itemGO.GetComponentInChildren<Button>();
+            Button btn = itemGO.GetComponentInChildren<SkinItemShopUI>().skinButton;
             if (btn != null)
             {
                 TextMeshProUGUI btnText = btn.GetComponentInChildren<TextMeshProUGUI>();
@@ -44,7 +48,20 @@ public class SkinShopUI : MonoBehaviour
 
                 btn.onClick.RemoveAllListeners();
                 btn.onClick.AddListener(() => OnSkinButtonClicked(skin));
+
+                // Prioriza o botão da skin equipada como firstButton
+                if (firstButton == null || skinManager.GetCurrentSkinId() == skin.skinId)
+                {
+                    firstButton = btn;
+                }
             }
+        }
+
+        // Define o botão selecionado no EventSystem
+        if (firstButton != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null); // Limpa seleção anterior
+            EventSystem.current.SetSelectedGameObject(firstButton.gameObject);
         }
     }
 
@@ -67,7 +84,6 @@ public class SkinShopUI : MonoBehaviour
         if (skinManager.IsSkinUnlocked(skin.skinId))
         {
             skinManager.ApplySkin(skin.skinId);
-            PopulateSkinItems(); // Atualiza botões
         }
         else
         {
@@ -75,13 +91,22 @@ public class SkinShopUI : MonoBehaviour
             {
                 skinManager.UnlockSkin(skin.skinId);
                 skinManager.ApplySkin(skin.skinId);
-                PopulateSkinItems(); // Atualiza botões
             }
             else
             {
                 Debug.Log("Saldo insuficiente para comprar a skin.");
                 // Aqui você pode disparar um aviso na UI para o jogador
+                return;
             }
+        }
+
+        PopulateSkinItems();
+
+        // Após atualizar os botões, refoca o botão da skin equipada para manter navegação
+        if (firstButton != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstButton.gameObject);
         }
     }
 

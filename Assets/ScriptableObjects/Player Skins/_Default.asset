@@ -17,3 +17,4 @@ MonoBehaviour:
   skinPrefab: {fileID: 5809675218720718215, guid: aa8cb15d68df6454180028ffe1595adf, type: 3}
   price: 0
   isDefault: 1
+  skinIcon: {r: 1, g: 1, b: 1, a: 1}
