@@ -4067,6 +4067,7 @@ GameObject:
   - component: {fileID: 862256834}
   - component: {fileID: 862256836}
   - component: {fileID: 862256835}
+  - component: {fileID: 862256837}
   m_Layer: 5
   m_Name: GamePad
   m_TagString: Untagged
@@ -4134,6 +4135,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862256833}
   m_CullTransparentMesh: 1
+--- !u!225 &862256837
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862256833}
+  m_Enabled: 1
+  m_Alpha: 0.5
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &874653978
 GameObject:
   m_ObjectHideFlags: 0
@@ -9145,6 +9158,7 @@ MonoBehaviour:
   - {fileID: 5534703265368663273, guid: 415cbe88063c4e840a470c12b487c0ca, type: 3}
   - {fileID: 4711546053752823583, guid: 3dbeb0ba3d75c414e9a86cdd1ee58a91, type: 3}
   - {fileID: 6877442990511881729, guid: ce15015475885534d931b30e0b4aa2d9, type: 3}
+  - {fileID: 7488894435221654619, guid: 5cb74f83993f1ed48a27da3c955c1417, type: 3}
   levelHolder: {fileID: 2098346407}
 --- !u!4 &2098346407
 Transform:
