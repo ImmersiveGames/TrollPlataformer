@@ -1319,11 +1319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinManager
   skinContainer: {fileID: 0}
   allSkins:
-  - {fileID: 11400000, guid: d6dd70ecb3f28a748b7ab1d956a1e6bd, type: 2}
-  - {fileID: 11400000, guid: 98e0dde3d9acfd845805b519feb3ed73, type: 2}
-  - {fileID: 11400000, guid: 8e152328fd724394fac1b56bbd468638, type: 2}
-  - {fileID: 11400000, guid: 051ae1f68921b734f84b967cef385efd, type: 2}
-  - {fileID: 11400000, guid: fcee56676dbdb7b4ab86b4936036a082, type: 2}
+  - {fileID: 11400000, guid: 79f4a7b6cbd631a45bcdac3c0d39a9a5, type: 2}
 --- !u!1 &320359422
 GameObject:
   m_ObjectHideFlags: 0
@@ -6076,6 +6072,7 @@ GameObject:
   - component: {fileID: 1381355017}
   - component: {fileID: 1381355018}
   - component: {fileID: 1381355019}
+  - component: {fileID: 1381355020}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6168,6 +6165,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkinShopUI
   contentParent: {fileID: 1634432824}
   skinItemPrefab: {fileID: 7768373451120416262, guid: 276a0bcecfd28424a8a5f439443fc29e, type: 3}
+--- !u!114 &1381355020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381355013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ea591ef3caa374e8b79ca62da03aa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OptionsManager
 --- !u!1 &1409684531
 GameObject:
   m_ObjectHideFlags: 0

@@ -57,6 +57,7 @@ public class SkinManager : MonoBehaviour
                 }
                 // Instancia o prefab da nova skin no contêiner
                 currentSkinInstance = Instantiate(skinToApply.skinPrefab, skinContainer);
+                currentSkinInstance.GetComponentInParent<PlayerAnimation>().GetAnimator();
                 currentSkinId = skinId;
                 SaveSkins(); // Salva o progresso para persistir a skin atual
             }

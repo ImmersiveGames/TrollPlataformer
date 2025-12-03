@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     private float verticalVelocity;
     private bool isJumping;
+    private bool wasGroundedLastFrame = true;
     private float jumpTimeCounter;
     
     private Vector3 externalDelta = Vector3.zero;
@@ -49,6 +50,17 @@ public class PlayerController : MonoBehaviour
         if (!characterController.enabled) return;
         HandleMovement();
         HandleFlip();
+        
+        bool isGroundedNow = IsGrounded();
+
+        // Detecta aterrissagem: estava no ar e agora está no chão
+        if (!wasGroundedLastFrame && isGroundedNow)
+        {
+            StopJump();
+            playerAnimation.StopJumpAnimation();
+        }
+
+        wasGroundedLastFrame = isGroundedNow;
     }
 
     private void HandleMovement()
@@ -112,7 +124,7 @@ public class PlayerController : MonoBehaviour
             isJumping = true;
             verticalVelocity = Mathf.Sqrt(2 * -gravity * jumpHeight);
             jumpTimeCounter = 0f;
-            playerAnimation.PlayJump();
+            playerAnimation.PlayJumpAnimation();
         }
     }
 
@@ -132,7 +144,7 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Flip chamado: " + flip);
     }
 
-    public void ToogleCharacterController(bool state)
+    public void ToggleCharacterController(bool state)
     {
         if (characterController != null)
             characterController.enabled = state;
@@ -142,11 +154,11 @@ public class PlayerController : MonoBehaviour
 
     public void TeleportTo(Vector3 position)
     {
-        ToogleCharacterController(false);
+        ToggleCharacterController(false);
         transform.position = position;
         verticalVelocity = 0f;
         moveInput = Vector2.zero;
-        ToogleCharacterController(true);
+        ToggleCharacterController(true);
     }
 
     public void ApplyPlatformDelta(Vector3 delta)

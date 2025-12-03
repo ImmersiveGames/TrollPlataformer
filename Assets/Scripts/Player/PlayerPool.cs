@@ -69,20 +69,20 @@ public class PlayerPool : MonoBehaviour
     public void EnablePlayerControl()
     {
         if (Player != null)
-            Player.ToogleCharacterController(true);
+            Player.ToggleCharacterController(true);
     }
     
     public void DisablePlayerControl()
     {
         if (Player != null)
-            Player.ToogleCharacterController(false);
+            Player.ToggleCharacterController(false);
     }
 
     public void OnPlayerDie()
     {
         Debug.Log("Morri");
         //playerGPX.SetActive(false);
-        Player.ToogleCharacterController(false);
+        Player.ToggleCharacterController(false);
         animations.MovementAnimation(0);
         animations.PlayDeathNormal();
         

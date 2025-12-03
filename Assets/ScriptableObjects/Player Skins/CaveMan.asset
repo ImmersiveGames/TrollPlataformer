@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4d4d92f34d769142ba7d3d92fbc91db, type: 3}
+  m_Name: CaveMan
+  m_EditorClassIdentifier: Assembly-CSharp::SkinData
+  skinId: CaveMan
+  displayName: CaveMan
+  skinPrefab: {fileID: 7661094138030477857, guid: 031c938ffb95e7f4f83a4fe4cd4454d7, type: 3}
+  price: 0
+  isDefault: 1
+  skinIcon: {r: 0.41960788, g: 0.2901961, b: 0.14901961, a: 1}

@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class PlayerAnimation : MonoBehaviour
 {
     [Header("Referências")]
@@ -9,9 +8,7 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Awake()
     {
-        if (animator == null) 
-            animator = GetComponent<Animator>();
-
+        GetAnimator();
         GameEvents.OnLevelComplete += LevelComplete;
     }
 
@@ -25,9 +22,14 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetFloat("Movement", movement);
     }
 
-    public void PlayJump()
+    public void PlayJumpAnimation()
     {
-        animator.SetTrigger("Jump");
+        animator.SetBool("Jump", true);
+    }
+
+    public void StopJumpAnimation()
+    {
+        animator.SetBool("Jump", false);
     }
 
     public void PlayDeathNormal()
@@ -53,6 +55,12 @@ public class PlayerAnimation : MonoBehaviour
     public void LevelComplete()
     {
         animator.SetFloat("Movement", 0f);
+    }
+
+    public void GetAnimator()
+    {
+        if (animator == null) 
+            animator = GetComponentInChildren<Animator>();
     }
 
 }
